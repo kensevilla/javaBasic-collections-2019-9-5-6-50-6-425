@@ -26,7 +26,8 @@ public class MyStack {
 
         // TODO: Please push the value into the storage here.
         // <--start
-        throw new NotImplementedException();
+        storage[count] = value;
+        count++;
         // --end-->
     }
 
@@ -36,7 +37,16 @@ public class MyStack {
         // TODO: Please create a new array of size newCapacity. And update related fields
         // TODO: You SHOULD NOT USE COLLECTIONS OTHER THAN ARRAY.
         // <--start
-        throw new NotImplementedException();
+        int [] newStorage = new int[newCapacity];
+        for(int storageIndex = 0; storageIndex < storage.length; storageIndex++){
+            newStorage[storageIndex] = storage[storageIndex];
+        }
+        storage = new int[newCapacity];
+
+        for(int i =0; i < count; i++){
+            storage[i] = newStorage[i];
+        }
+        capacity = newCapacity;
         // --end-->
     }
 
@@ -55,7 +65,8 @@ public class MyStack {
         // TODO: Please pop one element from the array.
         // <--start
         // --end-->
+        count--;
+        return storage[count];
 
-        throw new UnsupportedOperationException("Stack is empty.");
     }
 }
