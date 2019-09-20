@@ -29,44 +29,32 @@ class DistinctIterator<E> implements Iterator<E> {
     @SuppressWarnings({"FieldCanBeLocal", "unused"})
     private final Iterator<E> iterator;
     private ArrayList<E> temp = new ArrayList<>();
-
+    private E current;
     DistinctIterator(Iterator<E> iterator) {
         this.iterator = iterator;
     }
 
     @Override
     public boolean hasNext() {
-        if(temp.size() == 2){
-            return false;
+        while(this.iterator.hasNext()){
+            current = this.iterator.next();
+            if(temp.isEmpty()) {
+                temp.add(current);
+                return true;
+            }
+            else{
+                if(!temp.contains(current)){
+                    temp.add(current);
+                    return true;
+                }
+            }
         }
         return this.iterator.hasNext();
     }
 
     @Override
     public E next() {
-        boolean isDistinct = false;
-        E current = this.iterator.next();
-        if(temp.isEmpty()){
-            temp.add(current);
-            return current;
-        }
-        else {
-            while (!isDistinct) {
-                isDistinct=true;
-                for (int i = 0; i < temp.size(); i++) {
-                    if (temp.get(i) == current) {
-                        isDistinct = false;
-                    }
-                }
-                if (isDistinct) {
-                    temp.add(current);
-                }
-                else {
-                    current = this.iterator.next();
-                }
-            }
-            return current;
-        }
+        return current;
     }
     // --end->
 }
