@@ -22,6 +22,12 @@
   3. since Iterator is used, then next will always be executed when using iterator, thus removing "Juliet" which is next to "Amy"
   4. None
   
+  **should_generate_distinct_sequence_on_the_fly**
+  1. to know how iterator works. https://www.geeksforgeeks.org/how-to-use-iterator-in-java/
+  2. first I do not know how to manipulate an Iterator
+  3. since I already has Iterator as my argument, then I can just manipulate that Iterator inside an Iterator to filter and get the values needed
+  4. None
+  
   **should_predict_linked_list_operation_result**
 1. to know how subList works. https://www.geeksforgeeks.org/arraylist-sublist-method-in-java-with-examples/
 2. 
