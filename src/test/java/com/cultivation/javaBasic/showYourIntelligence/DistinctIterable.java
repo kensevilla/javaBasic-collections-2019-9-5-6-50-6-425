@@ -38,15 +38,9 @@ class DistinctIterator<E> implements Iterator<E> {
     public boolean hasNext() {
         while(this.iterator.hasNext()){
             current = this.iterator.next();
-            if(temp.isEmpty()) {
+            if(temp.isEmpty() || !temp.contains(current)) {
                 temp.add(current);
                 return true;
-            }
-            else{
-                if(!temp.contains(current)){
-                    temp.add(current);
-                    return true;
-                }
             }
         }
         return this.iterator.hasNext();
